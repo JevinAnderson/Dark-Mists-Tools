@@ -9,19 +9,21 @@ import Profile from './routes/profile';
 import Navigation from './components/navigation/navigation';
 import Loader from './components/loader/container';
 
-const Application = props =>
+const Application = props => (
   <BrowserRouter>
     <div className="application">
       <Navigation />
       <Switch>
-        <Route path="/" exact component={Items} />
-        <Route path="/items" exact component={Items} />
+        {['/', '/items', 'items.html'].map(path => (
+          <Route key={path} path={path} exact component={Items} />
+        ))}
         <Route path="/enchanters" exact component={Enchanters} />
         <Route path="/profile" exact component={Profile} />
         <Route render={() => <div className="404">Page Not Found: 404</div>} />
       </Switch>
       <Loader />
     </div>
-  </BrowserRouter>;
+  </BrowserRouter>
+);
 
 export default Application;

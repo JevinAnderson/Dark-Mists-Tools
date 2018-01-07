@@ -9,9 +9,14 @@ import List from '../components/items/list';
 import Search from '../components/items/search';
 import { editItem, removeItem } from '../actions/items';
 
+let needsToFetchOnMount = true;
+
 class Items extends Component {
   componentDidMount() {
-    this.props.fetchItems();
+    if (needsToFetchOnMount) {
+      this.props.fetchItems();
+      needsToFetchOnMount = false;
+    }
   }
 
   render() {

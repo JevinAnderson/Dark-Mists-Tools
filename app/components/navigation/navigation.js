@@ -40,7 +40,15 @@ class Navigation extends Component {
           )}
           onClick={this.toggle}
         >
-          <Link>Items</Link>
+          <Link
+            isActive={(match, location) =>
+              ['/', '/items', '/items.html'].some(
+                path => path === location.pathname
+              )
+            }
+          >
+            Items
+          </Link>
           <Link>Enchanters</Link>
           {user && <Link>Profile</Link>}
           <Authentication />
@@ -57,7 +65,4 @@ Navigation.propTypes = {
   user: PropTypes.object
 };
 
-export default compose(
-  withRouter,
-  withUser(),
-)(Navigation)
+export default compose(withRouter, withUser())(Navigation);
