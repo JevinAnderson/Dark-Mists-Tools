@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Darkmist Tools</title>
+  <link rel="icon" href="favicon.ico">
+</head>
+
+<body>
+  <div id="application"></div>
+  <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+  <script>
+    var config = {
+      apiKey: "AIzaSyAv3C21gFPUqwE6hK1flhfK6_t-UM8dUe4",
+      authDomain: "dark-mists-tools.firebaseapp.com",
+      databaseURL: "https://dark-mists-tools.firebaseio.com",
+      projectId: "dark-mists-tools",
+      storageBucket: "dark-mists-tools.appspot.com",
+      messagingSenderId: "644570721333"
+    };
+
+    firebase.initializeApp(config);
+    // firebase.database.enableLogging(true, true);
+    firebase.database.enableLogging(false, false);
+  </script>
+<script type="text/javascript" src="index_bundle.js"></script></body>
+
+</html>
