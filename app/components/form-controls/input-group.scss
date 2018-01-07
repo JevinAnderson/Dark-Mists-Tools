@@ -1,0 +1,19 @@
+.input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+
+  .form-control {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+    display: table-cell;
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}

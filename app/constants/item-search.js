@@ -1,0 +1,3 @@
+const NAMESPACE = 'ITEM_SEARCH_';
+
+export const SET_KEYWORD = `${NAMESPACE}SET_KEYWORD`;

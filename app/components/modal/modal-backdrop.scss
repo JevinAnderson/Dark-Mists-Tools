@@ -1,0 +1,36 @@
+$max_opacity: 0.6;
+
+.modal__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: all 0.15s linear;
+  background-color: black;
+  opacity: 0;
+  overflow: hidden;
+}
+
+
+.modal__backdrop--open {
+  display: block;
+  opacity: $max_opacity;
+}
+
+.modal__backdrop--closed {
+  display: none;
+  opacity: 0;
+}
+
+.modal__backdrop--visible {
+  display: block;
+}
+
+.modal__backdrop--open.modal__backdrop--transitioning {
+  opacity: 0;
+}
+
+.modal__backdrop--closed.modal__backdrop--transitioning {
+  opacity: $max_opacity;
+}

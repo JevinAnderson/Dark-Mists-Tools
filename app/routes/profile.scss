@@ -1,0 +1,35 @@
+$content_width: 1024px;
+
+.profile-route__left-content,
+.profile-route__right-content {
+  padding: 12px;
+}
+
+.profile-route__left-content {
+  background: #dad;
+}
+
+.profile-route__right-content {
+  background: #ada;
+}
+
+@media (min-width: $content_width) {
+  .profile-route__content-container {
+    max-width: $content_width;
+    margin: auto;
+  }
+
+  .profile-route__left-content,
+  .profile-route__right-content {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .profile-route__left-content {
+    width: 30%;
+  }
+
+  .profile-route__right-content {
+    width: 70%;
+  }
+}

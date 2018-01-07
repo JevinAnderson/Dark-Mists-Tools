@@ -1,0 +1,41 @@
+.modal__content {
+  transition: all 0.15s ease;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 0.25rem;
+}
+
+.modal__content--open {
+  display: block;
+  opacity: 1;
+}
+
+.modal__content--closed {
+  top: 0;
+  opacity: 0;
+  display: none;
+}
+
+.modal__content--visible {
+  display: block;
+}
+
+.modal__content--open.modal__content--transitioning {
+  opacity: 0;
+  top: 0;
+}
+
+.modal__content--closed.modal__content--transitioning {
+  opacity: 1;
+  top: 10%;
+}
+
+@media(max-width: 767px) {
+  .modal__content {
+    top: 0;
+    width: 100%;
+  }
+}
