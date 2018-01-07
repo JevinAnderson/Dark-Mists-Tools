@@ -8,15 +8,6 @@
     "build": "NODE_ENV='production' webpack -p",
     "yarn": "yarn install --ignore-engines --no-lockfile"
   },
-  "babel": {
-    "plugins": [
-      "transform-object-rest-spread"
-    ],
-    "presets": [
-      "env",
-      "react"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://JevinAnderson@bitbucket.org/JevinAnderson/my-dm-website.git"
@@ -28,12 +19,13 @@
     "autoprefixer": "^7.2.4",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.8",
     "html-webpack-plugin": "^2.30.1",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.0.10",
