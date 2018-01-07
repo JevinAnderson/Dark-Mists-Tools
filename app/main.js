@@ -14,7 +14,7 @@ const Application = props => (
     <div className="application">
       <Navigation />
       <Switch>
-        {['/', '/items', 'items.html'].map(path => (
+        {['/', '/items', '/items.html'].map(path => (
           <Route key={path} path={path} exact component={Items} />
         ))}
         <Route path="/enchanters" exact component={Enchanters} />

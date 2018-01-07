@@ -6,11 +6,12 @@ $content_width: 1024px;
 }
 
 .profile-route__left-content {
-  background: #dad;
+  // background: #dad;
 }
 
 .profile-route__right-content {
-  background: #ada;
+  // background: #ada;
+  display: none;
 }
 
 @media (min-width: $content_width) {
@@ -27,9 +28,12 @@ $content_width: 1024px;
 
   .profile-route__left-content {
     width: 30%;
+    margin: auto;
+    display: block;
   }
 
   .profile-route__right-content {
+    display: none;
     width: 70%;
   }
 }
