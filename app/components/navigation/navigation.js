@@ -10,19 +10,13 @@ import Authentication from '../authentication/authentication';
 import withUser from '../higher-order-components/with-user';
 
 class Navigation extends Component {
-  constructor(props) {
-    super(props);
+  state = {};
 
-    this.state = {};
-
-    bind(this, 'toggle');
-  }
-
-  toggle() {
+  toggle = () => {
     this.setState(prevState => ({
       expanded: !prevState.expanded
     }));
-  }
+  };
 
   render() {
     const { user } = this.props;
@@ -42,7 +36,7 @@ class Navigation extends Component {
         >
           <Link
             isActive={(match, location) =>
-              ['/', '/items', '/items.html'].some(
+              ['/', '/items', '/items.html', '/index.html'].some(
                 path => path === location.pathname
               )
             }
