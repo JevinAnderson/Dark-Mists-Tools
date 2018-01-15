@@ -24,21 +24,14 @@ class Navigation extends Component {
     return (
       <div className="navigation">
         <div className="navigation__title">Darkmists Tools</div>
-        {this.state.expanded && (
-          <div className="navigation__modal-background" onClick={this.toggle} />
-        )}
+        {this.state.expanded && <div className="navigation__modal-background" onClick={this.toggle} />}
         <div
-          className={join(
-            'navigation__links',
-            this.state.expanded && 'navigation__links--expanded'
-          )}
+          className={join('navigation__links', this.state.expanded && 'navigation__links--expanded')}
           onClick={this.toggle}
         >
           <Link
             isActive={(match, location) =>
-              ['/', '/items', '/items.html', '/index.html'].some(
-                path => path === location.pathname
-              )
+              ['/', '/items', '/items.html', '/index.html'].some(path => path === location.pathname)
             }
           >
             Items

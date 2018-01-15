@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import './list-group-item.scss';
 import { join } from '../../utilities/component';
 
-const ListGroupItem = ({ children, className, ...rest }) =>
+const ListGroupItem = ({ children, className, ...rest }) => (
   <div className={join('list-group-item', className)} {...rest}>
     {children}
-  </div>;
+  </div>
+);
 
 ListGroupItem.propTypes = {
   className: PropTypes.string,

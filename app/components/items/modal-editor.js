@@ -43,12 +43,7 @@ class ModalEditor extends PureComponent {
   }
 
   render() {
-    const {
-      props: { header, open, close },
-      state: { item },
-      updateItem,
-      save
-    } = this;
+    const { props: { header, open, close }, state: { item }, updateItem, save } = this;
 
     return (
       <div className="items__modal-editor">
@@ -58,8 +53,7 @@ class ModalEditor extends PureComponent {
             <Form item={item} updateItem={updateItem} />
           </ModalBody>
           <ModalFooter>
-            <DangerButton onClick={close}>Cancel</DangerButton>{' '}
-            <PrimaryButton onClick={save}>Save</PrimaryButton>
+            <DangerButton onClick={close}>Cancel</DangerButton> <PrimaryButton onClick={save}>Save</PrimaryButton>
           </ModalFooter>
         </Modal>
       </div>

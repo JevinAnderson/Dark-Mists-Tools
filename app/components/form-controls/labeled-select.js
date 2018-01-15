@@ -6,15 +6,12 @@ import Select from './select';
 import InputGroup from './input-group';
 import InputGroupAddon from './input-group-addon';
 
-const LabeledInput = ({ label, className, children, ...rest }) =>
+const LabeledInput = ({ label, className, children, ...rest }) => (
   <InputGroup className={className}>
-    <InputGroupAddon>
-      {label}
-    </InputGroupAddon>
-    <Select {...rest}>
-      {children}
-    </Select>
-  </InputGroup>;
+    <InputGroupAddon>{label}</InputGroupAddon>
+    <Select {...rest}>{children}</Select>
+  </InputGroup>
+);
 
 LabeledInput.propTypes = {
   label: PropTypes.string,

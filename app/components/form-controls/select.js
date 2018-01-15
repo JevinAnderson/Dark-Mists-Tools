@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import './form-control.scss';
 import { join } from '../../utilities/component';
 
-const Select = ({ className, children, ...rest }) =>
+const Select = ({ className, children, ...rest }) => (
   <select className={join('form-control', className)} {...rest}>
     {children}
-  </select>;
+  </select>
+);
 
 Select.propTypes = {
   children: PropTypes.any,

@@ -4,15 +4,11 @@ function Publisher() {
 
   function subscribe(subscriber) {
     if (publishing) {
-      throw new Error(
-        'Publisher is publishing. You cannot subscribe to a publisher in the middle of a publication.'
-      );
+      throw new Error('Publisher is publishing. You cannot subscribe to a publisher in the middle of a publication.');
     }
 
     if (typeof subscriber !== 'function') {
-      throw new Error(
-        'Subscriber is not a function. Publishers expect subscribers to be functions.'
-      );
+      throw new Error('Subscriber is not a function. Publishers expect subscribers to be functions.');
     }
 
     let subscribed = subscribers.indexOf(subscriber) !== -1;

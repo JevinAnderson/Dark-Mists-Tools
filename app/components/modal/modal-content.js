@@ -57,11 +57,7 @@ class ModalContent extends PureComponent {
   }
 
   render() {
-    return (
-      <div className={this.className()}>
-        {this.props.children}
-      </div>
-    );
+    return <div className={this.className()}>{this.props.children}</div>;
   }
 }
 

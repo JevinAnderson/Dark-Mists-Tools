@@ -6,7 +6,7 @@
   left: 0;
 
   &:after {
-    content: " ";
+    content: ' ';
     display: table;
     clear: both;
   }
@@ -68,7 +68,8 @@
 }
 
 @media (min-width: 768px) {
-  .navigation__menu, .navigation__modal-background {
+  .navigation__menu,
+  .navigation__modal-background {
     display: none;
   }
 

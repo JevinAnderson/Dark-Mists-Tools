@@ -9,4 +9,4 @@ export const createSimpleReducer = (initialState, setters) => (state = initialSt
   }
 
   return state;
-}
+};

@@ -16,16 +16,7 @@ class Authentication extends PureComponent {
 
     this.state = {};
 
-    bind(
-      this,
-      'close',
-      'error',
-      'login',
-      'onAuthStateChanged',
-      'onClick',
-      'open',
-      'signUp'
-    );
+    bind(this, 'close', 'error', 'login', 'onAuthStateChanged', 'onClick', 'open', 'signUp');
   }
 
   componentDidMount() {
@@ -107,12 +98,7 @@ class Authentication extends PureComponent {
         <a className="navigation__link" onClick={this.onClick}>
           {user ? 'Sign Out' : 'Sign In'}
         </a>
-        <Form
-          close={this.close}
-          login={this.login}
-          open={open}
-          signUp={this.signUp}
-        />
+        <Form close={this.close} login={this.login} open={open} signUp={this.signUp} />
       </div>
     );
   }
@@ -128,7 +114,4 @@ Authentication.propTypes = {
 
 const mapStateToProps = ({ user }) => ({ user });
 
-export default compose(
-  withLoaderControls(),
-  connect(mapStateToProps, { setUser })
-)(Authentication);
+export default compose(withLoaderControls(), connect(mapStateToProps, { setUser }))(Authentication);

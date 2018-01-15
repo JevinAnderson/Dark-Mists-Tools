@@ -63,28 +63,13 @@ class Image extends PureComponent {
       <div className="editors__image">
         {this.state.editing ? (
           <ListGroupItem className="editors__image__edit-container">
-            <Input
-              value={this.state.value}
-              onChange={this.onChange}
-              onKeyDown={this.onKeyDown}
-            />
+            <Input value={this.state.value} onChange={this.onChange} onKeyDown={this.onKeyDown} />
             <Button onClick={this.save}>Save</Button>
           </ListGroupItem>
         ) : (
-          <ListGroupItem
-            className="editors__image__display-container"
-            onClick={this.start}
-          >
-            {this.props.placeholder && (
-              <ListGroupItemHeading>
-                {this.props.placeholder}
-              </ListGroupItemHeading>
-            )}
-            <img
-              src={this.props.value}
-              alt={this.props.alt}
-              className="editors__image__display-image"
-            />
+          <ListGroupItem className="editors__image__display-container" onClick={this.start}>
+            {this.props.placeholder && <ListGroupItemHeading>{this.props.placeholder}</ListGroupItemHeading>}
+            <img src={this.props.value} alt={this.props.alt} className="editors__image__display-image" />
           </ListGroupItem>
         )}
       </div>

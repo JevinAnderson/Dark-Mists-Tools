@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 import { join } from '../../utilities/component';
 
-const ListGroupItem = ({ children, className, ...rest }) =>
+const ListGroupItem = ({ children, className, ...rest }) => (
   <div className={join('list-group-item-text', className)} {...rest}>
     {children}
-  </div>;
+  </div>
+);
 
 ListGroupItem.propTypes = {
   className: PropTypes.string,

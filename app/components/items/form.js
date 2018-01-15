@@ -72,7 +72,7 @@ class ItemForm extends PureComponent {
   updateItemWithAuthor(item) {
     const { user, updateItem } = this.props;
 
-    const author = get(user, 'displayName', item.author)
+    const author = get(user, 'displayName', item.author);
 
     updateItem(merge(item, { author }));
   }
@@ -83,13 +83,55 @@ class ItemForm extends PureComponent {
     return (
       <form className="item__form">
         <textarea rows={10} value={tag} className="form-control" data-item-key="tag" onChange={this.updateTag} />
-        <LabeledInput value={item.author || ''} label="author" data-item-key="author" onChange={this.onChange} placeholder="Author" />
-        <LabeledInput value={item.area || ''} label="area" data-item-key="area" onChange={this.onChange} placeholder="Area" />
-        <LabeledInput value={item.mob || ''} label="mob" data-item-key="mob" onChange={this.onChange} placeholder="Mob" />
-        <LabeledInput value={item.noun || ''} label="noun" data-item-key="noun" onChange={this.onChange} placeholder="Weapon Attack Noun" />
-        <LabeledInput value={item.hidden || ''} label="hidden" data-item-key="hidden" onChange={this.onChange} placeholder="Hidden" />
-        <LabeledInput value={item.gate || ''} label="gate" data-item-key="gate" onChange={this.onChange} placeholder="Gate Point" />
-        <LabeledInput value={item.quest || ''} label="quest" data-item-key="quest" onChange={this.onChange} placeholder="Quest info" />
+        <LabeledInput
+          value={item.author || ''}
+          label="author"
+          data-item-key="author"
+          onChange={this.onChange}
+          placeholder="Author"
+        />
+        <LabeledInput
+          value={item.area || ''}
+          label="area"
+          data-item-key="area"
+          onChange={this.onChange}
+          placeholder="Area"
+        />
+        <LabeledInput
+          value={item.mob || ''}
+          label="mob"
+          data-item-key="mob"
+          onChange={this.onChange}
+          placeholder="Mob"
+        />
+        <LabeledInput
+          value={item.noun || ''}
+          label="noun"
+          data-item-key="noun"
+          onChange={this.onChange}
+          placeholder="Weapon Attack Noun"
+        />
+        <LabeledInput
+          value={item.hidden || ''}
+          label="hidden"
+          data-item-key="hidden"
+          onChange={this.onChange}
+          placeholder="Hidden"
+        />
+        <LabeledInput
+          value={item.gate || ''}
+          label="gate"
+          data-item-key="gate"
+          onChange={this.onChange}
+          placeholder="Gate Point"
+        />
+        <LabeledInput
+          value={item.quest || ''}
+          label="quest"
+          data-item-key="quest"
+          onChange={this.onChange}
+          placeholder="Quest info"
+        />
         <LabeledSelect value={item.pulsing || 0} label="pulsing" data-item-key="pulsing" onChange={this.onChange}>
           <option value="0">Not Sure</option>
           <option value="1">Pulses</option>
@@ -124,9 +166,6 @@ const derive = props => ({
 const mapStateToProps = ({ user }, ownProps) => ({
   ...ownProps,
   user
-})
+});
 
-export default compose(
-  connect(mapStateToProps),
-  deriveProps(derive, UPDATE_PATHS, 'tag')
-)(ItemForm);
+export default compose(connect(mapStateToProps), deriveProps(derive, UPDATE_PATHS, 'tag'))(ItemForm);

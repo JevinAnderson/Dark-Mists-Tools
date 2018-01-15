@@ -28,9 +28,7 @@ class SpinButton extends PureComponent {
     }, 5000);
   }
   render() {
-    return (
-      <button onClick={this.onClick}>Spin</button>
-    );
+    return <button onClick={this.onClick}>Spin</button>;
   }
 }
 

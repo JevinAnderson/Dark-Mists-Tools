@@ -70,11 +70,7 @@ class Form extends PureComponent {
             <br />
             <br />
             <a href="#" onClick={toggle}>
-              {returning ? (
-                "Don't have an account? Sign up."
-              ) : (
-                'Already have an account? Sign in.'
-              )}
+              {returning ? "Don't have an account? Sign up." : 'Already have an account? Sign in.'}
             </a>
           </form>
         </ModalBody>

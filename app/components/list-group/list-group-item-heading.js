@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import './list-group-item-heading.scss';
 import { join } from '../../utilities/component';
 
-const ListGroupItemHeading = ({ children, className, ...rest }) =>
+const ListGroupItemHeading = ({ children, className, ...rest }) => (
   <div className={join('list-group-item-heading', className)} {...rest}>
     {children}
-  </div>;
+  </div>
+);
 
 ListGroupItemHeading.propTypes = {
   className: PropTypes.string,

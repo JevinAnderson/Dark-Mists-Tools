@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import { join } from '../../utilities/component';
 
-const toFromChildren = children =>
-  '/' + `${children}`.toLowerCase().replace(/[^a-zA-Z0-9]/g, '-');
+const toFromChildren = children => '/' + `${children}`.toLowerCase().replace(/[^a-zA-Z0-9]/g, '-');
 
 const Link = ({ children, className, to, isActive }) => (
   <NavLink

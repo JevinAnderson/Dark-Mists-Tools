@@ -9,10 +9,7 @@ import Spinner from './spinner';
 class Loader extends PureComponent {
   render() {
     const { loading } = this.props;
-    const className = join(
-      'loader',
-      loading ? 'loader--loading' : 'loader--idling'
-    );
+    const className = join('loader', loading ? 'loader--loading' : 'loader--idling');
 
     return (
       <div className={className}>

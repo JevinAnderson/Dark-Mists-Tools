@@ -12,7 +12,7 @@ const keyMap = {
   [COMMA_KEY]: [',']
 };
 
-export function ListenerBuilder({ keyCodes = [], handler = () => { } } = {}) {
+export function ListenerBuilder({ keyCodes = [], handler = () => {} } = {}) {
   const codes = [...keyCodes];
   const keys = [];
   let builder;
@@ -50,7 +50,16 @@ export function ListenerBuilder({ keyCodes = [], handler = () => { } } = {}) {
     }
   };
 
-  builder = { addKeyCode, listenForUnidentified, listenForEnterKey, listenForEscapeKey, listenForSpaceKey, listenForCommaKey, setHandler, createListener };
+  builder = {
+    addKeyCode,
+    listenForUnidentified,
+    listenForEnterKey,
+    listenForEscapeKey,
+    listenForSpaceKey,
+    listenForCommaKey,
+    setHandler,
+    createListener
+  };
 
   return builder;
 }

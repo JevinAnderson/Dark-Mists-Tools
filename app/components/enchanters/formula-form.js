@@ -19,11 +19,7 @@ const PartSelect = props => {
   }
 
   return (
-    <LabeledSelect
-      label="# of materials"
-      className="enchanters__formula-form__part-select"
-      {...props}
-    >
+    <LabeledSelect label="# of materials" className="enchanters__formula-form__part-select" {...props}>
       {options}
     </LabeledSelect>
   );
@@ -80,7 +76,12 @@ class FormulaForm extends Component {
     name = name.trim();
     affects = affects.trim();
 
-    firebase.database().ref(`formulas/${name}`).set({ name, affects, parts }).then(this.logResults).catch(this.logError);
+    firebase
+      .database()
+      .ref(`formulas/${name}`)
+      .set({ name, affects, parts })
+      .then(this.logResults)
+      .catch(this.logError);
   }
 
   logResults(...args) {
@@ -98,11 +99,7 @@ class FormulaForm extends Component {
     return (
       <div className="enchanters__formula-form">
         <LabeledInput label="Name" value={name} onChange={updateName} />
-        <LabeledInput
-          label="Affects"
-          value={affects}
-          onChange={updateAffects}
-        />
+        <LabeledInput label="Affects" value={affects} onChange={updateAffects} />
         <PartSelect value={parts} onChange={updateParts} />
         {error && <span className="error">{error}</span>}
         <Primary onClick={this.save}>Save</Primary>

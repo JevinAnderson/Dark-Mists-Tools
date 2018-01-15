@@ -88,11 +88,11 @@ class Search extends Component {
         <Button onClick={this.update}>Submit</Button>{' '}
         {this.state.editing && (
           <ModalEditor
-          header="Create Item"
-          item={this.state.item}
-          open={this.state.editing}
-          close={this.stopEditing}
-          updateItem={this.saveItem}
+            header="Create Item"
+            item={this.state.item}
+            open={this.state.editing}
+            close={this.stopEditing}
+            updateItem={this.saveItem}
           />
         )}
         <Button onClick={this.props.toggleAdvancedSearch}>Advanced Search</Button>

@@ -52,11 +52,7 @@ class Spinner extends PureComponent {
   }
 
   bubbleToParent(bubble, method) {
-    if (
-      bubble &&
-      this.context.spinner_context_parent &&
-      this.context.spinner_context_parent[method]
-    ) {
+    if (bubble && this.context.spinner_context_parent && this.context.spinner_context_parent[method]) {
       this.context.spinner_context_parent[method](bubble);
     }
   }

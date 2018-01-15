@@ -49,11 +49,7 @@ class InformationSettings extends Component {
   render() {
     return (
       <div className="profile__information-settings">
-        <StringEditor
-          value={this.props.user.displayName}
-          placeholder="Display Name"
-          update={this.updateDisplayName}
-        />
+        <StringEditor value={this.props.user.displayName} placeholder="Display Name" update={this.updateDisplayName} />
         <ImageEditor
           value={this.props.user.photoURL}
           placeholder="Display Image"

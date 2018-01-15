@@ -19,7 +19,7 @@ class List extends PureComponent {
       return false;
     }
 
-    if(material !== 'any' && item.material != material){
+    if (material !== 'any' && item.material != material) {
       return false;
     }
 
