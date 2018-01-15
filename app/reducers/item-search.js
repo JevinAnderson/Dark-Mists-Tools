@@ -2,11 +2,20 @@ import * as Constants from '../constants/item-search';
 import { merge } from '../utilities/component';
 
 const initialState = {
-  keyword: ''
+  keyword: '',
+  keywords: [''],
+  keywordsSearchType: 'any',
+  material: undefined,
+  pulsing: undefined,
+  showAdvancedSearch: false
 };
 
 const SETTERS = {
-  [Constants.SET_KEYWORD]: 'keyword'
+  [Constants.SET_KEYWORD]: 'keyword',
+  [Constants.SET_KEYWORDS]: 'keywords',
+  [Constants.SET_KEYWORDS_SEARCH_TYPE]: 'keywordsSearchType',
+  [Constants.SET_MATERIAL]: 'material',
+  [Constants.SET_PULSING]: 'pulsing'
 };
 
 export default function itemSearchReducer(state = initialState, action) {
@@ -18,6 +27,8 @@ export default function itemSearchReducer(state = initialState, action) {
   }
 
   switch (type) {
+    case Constants.TOGGLE_ADVANCED_SEARCH:
+      return { ...state, showAdvancedSearch: !state.showAdvancedSearch };
     default:
       return state;
   }

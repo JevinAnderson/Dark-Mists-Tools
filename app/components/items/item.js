@@ -17,6 +17,8 @@ import PrimaryButton from '../buttons/primary';
 import ModalEditor from './modal-editor';
 import deriveProps from '../higher-order-components/derive-props';
 
+const Dangerous = ({ children }) => <span dangerouslySetInnerHTML={dangerous(children)} />;
+
 class Item extends PureComponent {
   constructor(props) {
     super(props);
@@ -62,16 +64,10 @@ class Item extends PureComponent {
       <ListGroup className="items__item" style={this.style()}>
         <ListGroupItem>
           <ListGroupItemText>
-            <div
-              className="items__item__tag"
-              dangerouslySetInnerHTML={dangerous(tag)}
-            />
+            <div className="items__item__tag" dangerouslySetInnerHTML={dangerous(tag)} />
           </ListGroupItemText>
         </ListGroupItem>
-        <ListGroupItem
-          className="items__details-group-item"
-          onClick={this.toggleExpanded}
-        >
+        <ListGroupItem className="items__details-group-item" onClick={this.toggleExpanded}>
           <ListGroupItemHeading>Details</ListGroupItemHeading>
         </ListGroupItem>
         {expanded && (
@@ -82,23 +78,33 @@ class Item extends PureComponent {
             </ListGroupItem>
             <ListGroupItem>
               <ListGroupItemHeading>Area</ListGroupItemHeading>
-              <ListGroupItemText>{item.area}</ListGroupItemText>
+              <ListGroupItemText>
+                <Dangerous>{item.area}</Dangerous>
+              </ListGroupItemText>
             </ListGroupItem>
             <ListGroupItem>
               <ListGroupItemHeading>Mob</ListGroupItemHeading>
-              <ListGroupItemText>{item.mob}</ListGroupItemText>
+              <ListGroupItemText>
+                <Dangerous>{item.mob}</Dangerous>
+              </ListGroupItemText>
             </ListGroupItem>
             <ListGroupItem>
               <ListGroupItemHeading>Attack Noun</ListGroupItemHeading>
-              <ListGroupItemText>{item.noun}</ListGroupItemText>
+              <ListGroupItemText>
+                <Dangerous>{item.attack_noun}</Dangerous>
+              </ListGroupItemText>
             </ListGroupItem>
             <ListGroupItem>
               <ListGroupItemHeading>Hidden Affects</ListGroupItemHeading>
-              <ListGroupItemText>{item.hidden}</ListGroupItemText>
+              <ListGroupItemText>
+                <Dangerous>{item.hidden_affects}</Dangerous>
+              </ListGroupItemText>
             </ListGroupItem>
             <ListGroupItem>
               <ListGroupItemHeading>Quest info</ListGroupItemHeading>
-              <ListGroupItemText>{item.quest}</ListGroupItemText>
+              <ListGroupItemText>
+                <Dangerous>{item.quest_information}</Dangerous>
+              </ListGroupItemText>
             </ListGroupItem>
             <ListGroupItem>
               <ListGroupItemHeading>Pulsing</ListGroupItemHeading>
@@ -106,11 +112,13 @@ class Item extends PureComponent {
             </ListGroupItem>
             <ListGroupItem>
               <ListGroupItemHeading>Material</ListGroupItemHeading>
-              <ListGroupItemText>{materials[item.mats]}</ListGroupItemText>
+              <ListGroupItemText>{materials[item.material]}</ListGroupItemText>
             </ListGroupItem>
             <ListGroupItem>
               <ListGroupItemHeading>Gate Point</ListGroupItemHeading>
-              <ListGroupItemText>{item.gate}</ListGroupItemText>
+              <ListGroupItemText>
+                <Dangerous>{item.gate_point}</Dangerous>
+              </ListGroupItemText>
             </ListGroupItem>
             {user && (
               <ListGroupItem>
@@ -120,14 +128,7 @@ class Item extends PureComponent {
             )}
           </div>
         )}
-        {editing && (
-          <ModalEditor
-            item={item}
-            open={editing}
-            close={this.stopEditing}
-            updateItem={this.updateItem}
-          />
-        )}
+        {editing && <ModalEditor item={item} open={editing} close={this.stopEditing} updateItem={this.updateItem} />}
       </ListGroup>
     );
   }
@@ -146,12 +147,12 @@ Item.propTypes = {
     author: PropTypes.string,
     area: PropTypes.string,
     mob: PropTypes.string,
-    noun: PropTypes.string,
+    attack_noun: PropTypes.string,
     hidden: PropTypes.string,
-    mats: PropTypes.number,
+    material: PropTypes.number,
     pulsing: PropTypes.number,
     gate: PropTypes.string,
-    quest: PropTypes.string
+    quest_information: PropTypes.string
   })
 };
 

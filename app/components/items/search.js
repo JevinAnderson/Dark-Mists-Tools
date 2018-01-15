@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 
 import './search.scss';
 import Panel from '../panel/panel';
-import { setKeyword } from '../../actions/item-search';
-import { bind } from '../../utilities/component';
+import * as ItemSearchActions from '../../actions/item-search';
 import Input from '../form-controls/input';
 import Button from '../buttons/default';
 import PrimaryButton from '../buttons/primary';
 import ModalEditor from './modal-editor';
+import AdvancedSearch from './advanced-search';
 
 const UPDATE_KEYS = ['keyword'];
 
@@ -19,17 +19,6 @@ class Search extends Component {
 
     this.state = this.mapPropsToState(props);
     this.state.item = {};
-
-    bind(
-      this,
-      'edit',
-      'stopEditing',
-      'updateItem',
-      'saveItem',
-      'onKeyPress',
-      'update',
-      'updateKeyword'
-    );
   }
 
   componentWillReceiveProps(nextProps) {
@@ -40,48 +29,52 @@ class Search extends Component {
     }
   }
 
-  onKeyPress({ key }) {
+  onKeyPress = ({ key }) => {
     if (key === 'Enter') {
       this.update();
     }
-  }
+  };
 
-  edit() {
+  edit = () => {
     this.setState({ editing: true });
-  }
+  };
 
-  stopEditing() {
+  stopEditing = () => {
     this.setState({ editing: false });
-  }
+  };
 
-  updateItem(item) {
+  updateItem = item => {
     this.setState({ item });
-  }
+  };
 
-  saveItem(item) {
+  saveItem = item => {
     this.setState({
       editing: false,
       item: {}
     });
 
     this.props.createItem(item);
-  }
+  };
 
   mapPropsToState({ keyword }) {
     return { keyword };
   }
 
-  updateKeyword({ target: { value: keyword } }) {
+  updateKeyword = ({ target: { value: keyword } }) => {
     this.setState({ keyword });
-  }
+  };
 
-  update() {
+  update = () => {
     if (this.props.keyword !== this.state.keyword) {
       this.props.setKeyword(this.state.keyword);
     }
-  }
+  };
 
-  render() {
+  render = () => {
+    if (this.props.showAdvancedSearch) {
+      return <AdvancedSearch />;
+    }
+
     return (
       <Panel className="items__search">
         <Input
@@ -93,30 +86,29 @@ class Search extends Component {
           onKeyPress={this.onKeyPress}
         />{' '}
         <Button onClick={this.update}>Submit</Button>{' '}
-        {this.props.user && (
-          <PrimaryButton onClick={this.edit}>Create Item</PrimaryButton>
-        )}
         {this.state.editing && (
           <ModalEditor
-            header="Create Item"
-            item={this.state.item}
-            open={this.state.editing}
-            close={this.stopEditing}
-            updateItem={this.saveItem}
+          header="Create Item"
+          item={this.state.item}
+          open={this.state.editing}
+          close={this.stopEditing}
+          updateItem={this.saveItem}
           />
         )}
+        <Button onClick={this.props.toggleAdvancedSearch}>Advanced Search</Button>
+        {this.props.user && <PrimaryButton onClick={this.edit}>Create Item</PrimaryButton>}
       </Panel>
     );
-  }
+  };
 }
 
 Search.propTypes = {
   keyword: PropTypes.string,
+  showAdvancedSearch: PropTypes.bool,
   setKeyword: PropTypes.func,
+  toggleAdvancedSearch: PropTypes.func,
   createItem: PropTypes.func
 };
-
-Search.defaultProps = {};
 
 const mapStateToProps = ({ user, item_search }, ownProps) => ({
   user,
@@ -124,4 +116,4 @@ const mapStateToProps = ({ user, item_search }, ownProps) => ({
   ...ownProps
 });
 
-export default connect(mapStateToProps, { setKeyword })(Search);
+export default connect(mapStateToProps, ItemSearchActions)(Search);
