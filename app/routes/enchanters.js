@@ -1,5 +1,11 @@
 import React from 'react';
 
-const Enchanters = props => <div className="enchanters-route">Enchanters coming soon...</div>;
+import FormulaList from '../components/enchanters/formula-list';
+
+const Enchanters = props => (
+  <div className="enchanters-route">
+    <FormulaList />
+  </div>
+);
 
 export default Enchanters;

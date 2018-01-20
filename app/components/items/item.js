@@ -7,7 +7,6 @@ import { bind, dangerous } from '../../utilities/component';
 import { escapeHtml, revertEscapeHtml } from '../../utilities/sanitize';
 import pulsing from '../../constants/pulsing-values';
 import materials from '../../constants/materials';
-import Panel from '../panel/panel';
 import ListGroup from '../list-group/list-group';
 import ListGroupItem from '../list-group/list-group-item';
 import ListGroupItemHeading from '../list-group/list-group-item-heading';
