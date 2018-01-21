@@ -53,10 +53,10 @@ class ItemForm extends PureComponent {
     const { item } = this.props;
     let { pulsing = 0 } = item;
     pulsing = this.doesTagPulse(value) ? 1 : pulsing;
-    const mats = this.materialFromTag(value);
+    const material = this.materialFromTag(value);
     const tag = escapeHtml(value);
 
-    const changes = { pulsing, mats, tag };
+    const changes = { pulsing, material, tag };
 
     this.updateItemWithAuthor(merge(item, changes));
   }

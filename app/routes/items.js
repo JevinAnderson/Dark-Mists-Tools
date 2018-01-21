@@ -8,6 +8,7 @@ import * as itemActions from '../actions/items';
 import List from '../components/items/list';
 import Search from '../components/items/search';
 import { editItem, removeItem } from '../actions/items';
+import CopyForm from '../components/items/copy-form';
 
 let needsToFetchOnMount = true;
 
@@ -22,10 +23,10 @@ class Items extends Component {
   render() {
     const { createItem, editItem, removeItem } = this.props;
 
+
     return (
       <div className="items-route">
-        <Search createItem={createItem} />
-        <List editItem={editItem} removeItem={removeItem} />
+        <CopyForm />
       </div>
     );
   }
