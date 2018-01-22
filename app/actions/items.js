@@ -1,7 +1,8 @@
 import { set } from '../utilities/actions';
 import { SET_ITEMS } from '../constants/items';
 
-const API_ROOT = process.env.NODE_ENV === 'production'  || true ? 'http://api.dm.jevinanderson.com' : 'http://127.0.0.1:2008';
+const API_ROOT =
+  process.env.NODE_ENV === 'production' || true ? 'http://api.dm.jevinanderson.com' : 'http://127.0.0.1:2008';
 
 const JSON_HEADERS = {
   Accept: 'application/json',

@@ -23,7 +23,6 @@ class Items extends Component {
   render() {
     const { createItem, editItem, removeItem } = this.props;
 
-
     return (
       <div className="items-route">
         <CopyForm />
