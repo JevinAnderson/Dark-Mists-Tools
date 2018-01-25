@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import './advanced-search.scss';
 import Panel from '../panel/panel';
 import * as ItemSearchActions from '../../actions/item-search';
 import Input from '../form-controls/input';

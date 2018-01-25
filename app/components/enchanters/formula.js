@@ -7,7 +7,7 @@ import ListGroupItemHeading from '../list-group/list-group-item-heading';
 import ListGroupItemText from '../list-group/list-group-item-text';
 
 const style = filtered => ({
-  display: filtered ? 'hidden' : undefined
+  display: filtered ? 'none' : undefined
 });
 
 const Formula = ({ name, value, materials, count, filtered }) => (
@@ -36,7 +36,8 @@ Formula.propTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
   count: PropTypes.number,
-  materials: PropTypes.any
+  materials: PropTypes.any,
+  style: PropTypes.any
 };
 
 Formula.defaultProps = {};
