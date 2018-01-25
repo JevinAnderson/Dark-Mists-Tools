@@ -30,14 +30,11 @@ const filtered = ({ keywords, keywordsSearchType }, { value }) => {
   return false;
 };
 
-const FormulaList = props => {
-  console.log(props);
-  return (
-    <Panel className="enchanters__formula-list">
-      {formulas.map(formula => <Formula key={formula.name} filtered={filtered(props, formula)} {...formula} />)}
-    </Panel>
-  );
-};
+const FormulaList = props => (
+  <Panel className="enchanters__formula-list">
+    {formulas.map(formula => <Formula key={formula.name} filtered={filtered(props, formula)} {...formula} />)}
+  </Panel>
+);
 
 FormulaList.propTypes = {
   keywords: PropTypes.array,
