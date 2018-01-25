@@ -38,7 +38,7 @@ if (process.env.NODE_ENV === 'production') {
     new webpack.optimize.UglifyJsPlugin()
   );
 } else {
-  config.devtool = 'cheap-module-source-map';
+  config.devtool = 'eval-source-map';
 }
 
 module.exports = config;
