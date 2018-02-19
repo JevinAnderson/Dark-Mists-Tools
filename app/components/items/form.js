@@ -126,9 +126,9 @@ class ItemForm extends PureComponent {
           placeholder="Gate Point"
         />
         <LabeledInput
-          value={item.quest || ''}
+          value={item.quest_information || ''}
           label="quest"
-          data-item-key="quest"
+          data-item-key="quest_information"
           onChange={this.onChange}
           placeholder="Quest info"
         />
