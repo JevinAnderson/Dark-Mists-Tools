@@ -53,10 +53,10 @@ class ItemForm extends PureComponent {
     const { item } = this.props;
     let { pulsing = 0 } = item;
     pulsing = this.doesTagPulse(value) ? 1 : pulsing;
-    const mats = this.materialFromTag(value);
+    const material = this.materialFromTag(value);
     const tag = escapeHtml(value);
 
-    const changes = { pulsing, mats, tag };
+    const changes = { pulsing, material, tag };
 
     this.updateItemWithAuthor(merge(item, changes));
   }
@@ -107,18 +107,18 @@ class ItemForm extends PureComponent {
           placeholder="Mob"
         />
         <LabeledInput
-          value={item.noun || ''}
+          value={item.attack_noun || ''}
           label="noun"
-          data-item-key="noun"
+          data-item-key="attack_noun"
           onChange={this.onChange}
           placeholder="Weapon Attack Noun"
         />
         <LabeledInput
-          value={item.hidden || ''}
+          value={item.hidden_affects || ''}
           label="hidden"
-          data-item-key="hidden"
+          data-item-key="hidden_affects"
           onChange={this.onChange}
-          placeholder="Hidden"
+          placeholder="Hidden Item affects"
         />
         <LabeledInput
           value={item.gate || ''}
