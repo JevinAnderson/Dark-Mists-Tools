@@ -58,7 +58,10 @@ class Spinner extends PureComponent {
   }
 
   render() {
-    const { props: { children }, state: { spinning } } = this;
+    const {
+      props: { children },
+      state: { spinning }
+    } = this;
 
     return (
       <div>

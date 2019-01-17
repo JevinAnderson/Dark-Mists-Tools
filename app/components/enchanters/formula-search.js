@@ -77,4 +77,7 @@ FormulaSearch.defaultProps = {
 
 const mapStateToProps = ({ formula_search }) => formula_search;
 
-export default connect(mapStateToProps, FormulaSearchActions)(FormulaSearch);
+export default connect(
+  mapStateToProps,
+  FormulaSearchActions
+)(FormulaSearch);

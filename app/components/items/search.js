@@ -116,4 +116,7 @@ const mapStateToProps = ({ user, item_search }, ownProps) => ({
   ...ownProps
 });
 
-export default connect(mapStateToProps, ItemSearchActions)(Search);
+export default connect(
+  mapStateToProps,
+  ItemSearchActions
+)(Search);

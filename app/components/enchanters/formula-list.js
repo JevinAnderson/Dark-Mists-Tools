@@ -32,7 +32,9 @@ const filtered = ({ keywords, keywordsSearchType }, { value }) => {
 
 const FormulaList = props => (
   <Panel className="enchanters__formula-list">
-    {formulas.map(formula => <Formula key={formula.name} filtered={filtered(props, formula)} {...formula} />)}
+    {formulas.map(formula => (
+      <Formula key={formula.name} filtered={filtered(props, formula)} {...formula} />
+    ))}
   </Panel>
 );
 

@@ -10,7 +10,10 @@ const withUser = () => WrappedComponent => {
     user
   });
 
-  return connect(mapStateToProps, UserActions)(WrappedComponent);
+  return connect(
+    mapStateToProps,
+    UserActions
+  )(WrappedComponent);
 };
 
 export default withUser;

@@ -69,7 +69,9 @@ class Authentication extends PureComponent {
   }
 
   onClick(event) {
-    const { props: { user } } = this;
+    const {
+      props: { user }
+    } = this;
 
     if (user) {
       this.logout();
@@ -91,7 +93,10 @@ class Authentication extends PureComponent {
   }
 
   render() {
-    const { props: { user }, state: { open } } = this;
+    const {
+      props: { user },
+      state: { open }
+    } = this;
 
     return (
       <div className="authentication">
@@ -114,4 +119,10 @@ Authentication.propTypes = {
 
 const mapStateToProps = ({ user }) => ({ user });
 
-export default compose(withLoaderControls(), connect(mapStateToProps, { setUser }))(Authentication);
+export default compose(
+  withLoaderControls(),
+  connect(
+    mapStateToProps,
+    { setUser }
+  )
+)(Authentication);

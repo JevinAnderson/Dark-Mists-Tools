@@ -7,13 +7,17 @@ import Item from './item';
 
 class List extends PureComponent {
   simpleSearch(item) {
-    const { item_search: { keyword } } = this.props;
+    const {
+      item_search: { keyword }
+    } = this.props;
 
     return !keyword || item.tag.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
   }
 
   advancedSearch(item) {
-    let { item_search: { keywords = [], keywordsSearchType = 'any', pulsing = 'yes', material = 'any' } } = this.props;
+    let {
+      item_search: { keywords = [], keywordsSearchType = 'any', pulsing = 'yes', material = 'any' }
+    } = this.props;
 
     if (pulsing === 'no' && item.pulsing != '2') {
       return false;

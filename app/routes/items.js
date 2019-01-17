@@ -40,4 +40,7 @@ Items.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ownProps;
 
-export default connect(mapStateToProps, itemActions)(Items);
+export default connect(
+  mapStateToProps,
+  itemActions
+)(Items);

@@ -126,4 +126,7 @@ AdvancedSearch.defaultProps = {
 
 const mapStateToProps = ({ item_search }) => item_search;
 
-export default connect(mapStateToProps, ItemSearchActions)(AdvancedSearch);
+export default connect(
+  mapStateToProps,
+  ItemSearchActions
+)(AdvancedSearch);

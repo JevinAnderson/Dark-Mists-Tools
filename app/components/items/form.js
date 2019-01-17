@@ -78,7 +78,9 @@ class ItemForm extends PureComponent {
   }
 
   render() {
-    const { props: { children, item, tag } } = this;
+    const {
+      props: { children, item, tag }
+    } = this;
 
     return (
       <form className="item__form">
@@ -168,4 +170,7 @@ const mapStateToProps = ({ user }, ownProps) => ({
   user
 });
 
-export default compose(connect(mapStateToProps), deriveProps(derive, UPDATE_PATHS, 'tag'))(ItemForm);
+export default compose(
+  connect(mapStateToProps),
+  deriveProps(derive, UPDATE_PATHS, 'tag')
+)(ItemForm);

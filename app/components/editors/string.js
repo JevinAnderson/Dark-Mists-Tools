@@ -49,7 +49,10 @@ class String extends PureComponent {
   }
 
   save() {
-    const { props: { update, value: initial }, state: { value } } = this;
+    const {
+      props: { update, value: initial },
+      state: { value }
+    } = this;
 
     if (value && value !== initial) {
       update(value);

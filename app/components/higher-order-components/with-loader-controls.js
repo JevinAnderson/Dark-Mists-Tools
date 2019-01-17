@@ -10,7 +10,10 @@ const withLoaderControls = () => WrappedComponent => {
     loading
   });
 
-  return connect(mapStateToProps, LoaderActions)(WrappedComponent);
+  return connect(
+    mapStateToProps,
+    LoaderActions
+  )(WrappedComponent);
 };
 
 export default withLoaderControls;

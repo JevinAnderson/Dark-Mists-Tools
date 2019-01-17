@@ -52,4 +52,7 @@ Navigation.propTypes = {
   user: PropTypes.object
 };
 
-export default compose(withRouter, withUser())(Navigation);
+export default compose(
+  withRouter,
+  withUser()
+)(Navigation);

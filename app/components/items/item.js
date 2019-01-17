@@ -57,7 +57,10 @@ class Item extends PureComponent {
   }
 
   render() {
-    const { props: { user, item, tag }, state: { expanded, editing } } = this;
+    const {
+      props: { user, item, tag },
+      state: { expanded, editing }
+    } = this;
 
     return (
       <ListGroup className="items__item" style={this.style()}>
