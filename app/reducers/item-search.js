@@ -5,6 +5,7 @@ const initialState = {
   keyword: '',
   keywords: [''],
   keywordsSearchType: 'any',
+  exclusions: [],
   material: undefined,
   pulsing: undefined,
   showAdvancedSearch: false
@@ -14,6 +15,7 @@ const SETTERS = {
   [Constants.SET_KEYWORD]: 'keyword',
   [Constants.SET_KEYWORDS]: 'keywords',
   [Constants.SET_KEYWORDS_SEARCH_TYPE]: 'keywordsSearchType',
+  [Constants.SET_EXCLUSIONS]: 'exclusions',
   [Constants.SET_MATERIAL]: 'material',
   [Constants.SET_PULSING]: 'pulsing'
 };

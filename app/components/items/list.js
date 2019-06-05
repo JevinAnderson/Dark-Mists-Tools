@@ -16,7 +16,7 @@ class List extends PureComponent {
 
   advancedSearch(item) {
     let {
-      item_search: { keywords = [], keywordsSearchType = 'any', pulsing = 'yes', material = 'any' }
+      item_search: { keywords = [], exclusions = [], keywordsSearchType = 'any', pulsing = 'yes', material = 'any' }
     } = this.props;
 
     if (pulsing === 'no' && item.pulsing != '2') {
@@ -29,6 +29,11 @@ class List extends PureComponent {
 
     keywords = keywords.filter(keyword => keyword.trim());
     const tag = item.tag.toLowerCase();
+
+    exclusions = exclusions.filter(Boolean).map(exclusion => exclusion.toLowerCase());
+    if (exclusions.some(exclusion => tag.indexOf(exclusion) !== -1)) {
+      return false;
+    }
 
     if (keywords.length === 0) return true;
 

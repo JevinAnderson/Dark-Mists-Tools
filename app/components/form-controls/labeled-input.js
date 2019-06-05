@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { join } from '../../utilities/component';
 import Input from './input';
 import InputGroup from './input-group';
 import InputGroupAddon from './input-group-addon';

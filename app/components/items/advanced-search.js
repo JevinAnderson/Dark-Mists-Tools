@@ -9,17 +9,19 @@ import Select from '../form-controls/select';
 import Button from '../buttons/default';
 import PrimaryButton from '../buttons/primary';
 import DangerButton from '../buttons/danger';
-import ModalEditor from './modal-editor';
 import LabeledSelect from '../form-controls/labeled-select';
 import Materials from '../../constants/materials';
 import throttle from 'lodash/throttle';
+import LabeledInput from '../form-controls/labeled-input';
+import ListGroupItemHeading from '../list-group/list-group-item-heading';
 
 class AdvancedSearch extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      keywords: [...props.keywords]
+      keywords: [...props.keywords],
+      exclusions: [...props.exclusions]
     };
   }
 
@@ -51,11 +53,37 @@ class AdvancedSearch extends Component {
     this.setStateKeywords(keywords);
   };
 
-  setStateKeywords = keywords => {
-    this.setState({ keywords }, this.setPropKeywords);
+  addExclusion = () => {
+    this.setStateExclusions([...this.state.exclusions, '']);
   };
 
-  setPropKeywords = throttle(() => {
+  removeExclusion = () => {
+    this.setStateExclusions(this.state.exclusions.slice(0, this.state.exclusions.length - 1));
+  };
+
+  updateExclusions = ({ target }) => {
+    const index = parseInt(target.getAttribute('data-exclusion-index'), 10);
+    console.log('updateExclusions index', index);
+    const exclusion = target.value;
+    const exclusions = [...this.state.exclusions];
+    exclusions.splice(index, 1, exclusion);
+
+    this.setStateExclusions(exclusions);
+  };
+
+  setStateExclusions = exclusions => {
+    this.setState({ exclusions }, this.setStoreExclusions);
+  };
+
+  setStoreExclusions = throttle(() => {
+    this.props.setExclusions(this.state.exclusions);
+  }, 1000);
+
+  setStateKeywords = keywords => {
+    this.setState({ keywords }, this.setStoreKeywords);
+  };
+
+  setStoreKeywords = throttle(() => {
     this.props.setKeywords(this.state.keywords);
   }, 1000);
 
@@ -90,6 +118,21 @@ class AdvancedSearch extends Component {
         <PrimaryButton onClick={this.addKeyword}>Add Keyword</PrimaryButton>
       </Panel>
       <Panel>
+        <ListGroupItemHeading>Do not include any of these:</ListGroupItemHeading>
+        <br />
+        {this.state.exclusions.map((exclusion, index) => (
+          <LabeledInput
+            key={index}
+            value={exclusion}
+            label="Do not include"
+            data-exclusion-index={index}
+            onChange={this.updateExclusions}
+          />
+        ))}
+        <DangerButton onClick={this.removeExclusion}>Remove Exclusion</DangerButton>
+        <PrimaryButton onClick={this.addExclusion}>Add Exclusion</PrimaryButton>
+      </Panel>
+      <Panel>
         <LabeledSelect label="Include Pulsing Items" value={this.props.pulsing} onChange={this.updatePulsing}>
           <option value="yes">Yes</option>
           <option value="no">No</option>
@@ -112,14 +155,17 @@ class AdvancedSearch extends Component {
 AdvancedSearch.propTypes = {
   keywords: PropTypes.array,
   keywordsSearchType: PropTypes.string,
+  exclusions: PropTypes.array,
   setKeywordsSearchType: PropTypes.func,
   setKeywords: PropTypes.func,
+  setExclusions: PropTypes.func,
   toggleAdvancedSearch: PropTypes.func
 };
 
 AdvancedSearch.defaultProps = {
   keywords: [''],
   keywordsSearchType: 'any',
+  exclusions: [],
   pulsing: 'yes',
   material: 'any'
 };

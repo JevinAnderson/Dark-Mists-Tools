@@ -22,19 +22,22 @@ export const createItem = item => (dispatch, getState) => {
   const ref = firebase.database().ref('items');
   const itemRef = ref.push();
 
-  itemRef.set(item).then(() => {
-    const { items: previousItems } = getState();
+  itemRef
+    .set(item)
+    .then(() => {
+      const { items: previousItems } = getState();
 
-    dispatch(
-      setItems([
-        {
-          id: itemRef.key,
-          ...item
-        },
-        ...previousItems
-      ])
-    );
-  }).catch(console.log)
+      dispatch(
+        setItems([
+          {
+            id: itemRef.key,
+            ...item
+          },
+          ...previousItems
+        ])
+      );
+    })
+    .catch(console.log);
 };
 
 export const editItem = item => (dispatch, getState) => {
