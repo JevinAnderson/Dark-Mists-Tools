@@ -26679,5 +26679,12 @@
     "material": 30,
     "pulsing": 2,
     "tag": "Object &#39;a silver engraved electrum bracelet&#39; is type armor, extra \nflags humming nodrop.\nWeight is 5.0 pounds, value is 353970, level is 59.\nMaterial is electrum.\nrestrict flags none.\nArmor class is 15 pierce, 15 bash, 15 slash, and 10 vs. magic.\nAffects hit roll by 9.\nAffects damage roll by 9."
+  },
+  {
+    "id": "-Lh0tyWXNDfoWtJgW6Nx",
+    "author": "Quenton",
+    "material": 49,
+    "pulsing": 0,
+    "tag": "Object &#39;an oversized lumber axe&#39; is type weapon, extra flags none.\nWeight is 11.8 pounds, value is 177455, level is 60.\nMaterial is iron.\nrestrict flags none.\nWeapon type is axe.\nDamage is 2d31 (average 32).\nWeapons flags: sharp armor-piercing poison\nAffects dexterity by 2.\nAffects constitution by 2.\nAffects strength by 2.\nAffects hit roll by 4.\nAffects intelligence by 2.\nAffects wisdom by 2.\nAffects damage roll by 7."
   }
 ]
