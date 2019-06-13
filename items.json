@@ -26686,5 +26686,45 @@
     "material": 49,
     "pulsing": 0,
     "tag": "Object &#39;an oversized lumber axe&#39; is type weapon, extra flags none.\nWeight is 11.8 pounds, value is 177455, level is 60.\nMaterial is iron.\nrestrict flags none.\nWeapon type is axe.\nDamage is 2d31 (average 32).\nWeapons flags: sharp armor-piercing poison\nAffects dexterity by 2.\nAffects constitution by 2.\nAffects strength by 2.\nAffects hit roll by 4.\nAffects intelligence by 2.\nAffects wisdom by 2.\nAffects damage roll by 7."
+  },
+  {
+    "id": "-Lh1wUFDtsdadQi09FOW",
+    "area": "Raven Theater",
+    "author": "Jobu",
+    "material": 65,
+    "mob": "Found inside the large amethyst orb (kill Grand Morrigu for key)",
+    "pulsing": 1,
+    "tag": "Object &#39;an amethyst-studded obsidian orb&#39; is type weapon, extra flags invis noremove rotdeath.\nWeight is 6.2 pounds, value is 281734, level is 56.\nMaterial is obsidian.\nrestrict flags none.\nWeapon type is exotic.\nDamage is 5d9 (average 25).\nWeapons flags: shocking\nAdds faerie_fire affect.\nAffects mana regeneration by 1.\nAffects regeneration by 1.\nAffects hp by -20.\nAffects constitution by -2.\nAffects damage roll by 4."
+  },
+  {
+    "id": "-Lh1wrkPrGW9PjDcGFHp",
+    "area": "Raven Theater",
+    "author": "Jobu",
+    "material": 0,
+    "mob": "dying morrigu",
+    "pulsing": 0,
+    "tag": "Object &#39;a charred feather&#39; is type weapon, extra flags magic anti_evil nonmetal.\nWeight is 0.2 pounds, value is 20507, level is 53.\nMaterial is feathers.\nrestrict flags none.\nWeapon type is dagger.\nDamage is 5d9 (average 25).\nAdds flying affect.\nAffects hit roll by 6.\nAffects damage roll by 1."
+  },
+  {
+    "id": "-Lh26ICJyZUvQanfMYcL",
+    "area": "Nightfall Keep",
+    "author": "Jobu",
+    "material": 2,
+    "pulsing": 0,
+    "tag": "Object &#39;a collar of enslavement&#39; is type trash, extra flags dark evil magic nodrop noremove.\nWeight is 4.0 pounds, value is 8418, level is 35.\nMaterial is adamantite.\nrestrict flags none.\nAffects regeneration by 2.\nAffects wisdom by -8.\nAffects intelligence by -8.\nAffects mana by -50.\nAffects dexterity by -8.\nAffects constitution by -8.\nAffects armor class by 10.\nAffects strength by -8."
+  },
+  {
+    "id": "-Lh67EXasxkSOTPrq2AZ",
+    "author": "Quenton",
+    "material": 12,
+    "pulsing": 2,
+    "tag": "Object &#39;a shell of a giant turtle&#39; is type boat, extra flags \nsellextract.\nWeight is 2.0 pounds, value is 500, level is 0.\nMaterial is bone.\nrestrict flags none."
+  },
+  {
+    "id": "-LhGGOoScZThmUAjYNhs",
+    "author": "Quenton",
+    "material": 12,
+    "pulsing": 1,
+    "tag": "Object &#39;the ice worm&#39;s incisor&#39; is type weapon, extra flags evil \nmagic nodrop inventory nonmetal nolocate nouncurse.\nWeight is 1.1 pounds, value is 180266, level is 60.\nMaterial is bone.\nrestrict flags none.\nWeapon type is dagger.\nDamage is 4d10 (average 22).\nWeapons flags: frost vampiric sharp vorpal poison draining fatiguing\nAffects damage roll by 5.\nAffects hit roll by 5.\nAffects constitution by -4."
   }
 ]
