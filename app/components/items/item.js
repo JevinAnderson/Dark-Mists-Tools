@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
 import './item.scss';
-import { bind, dangerous } from '../../utilities/component';
+import { dangerous } from '../../utilities/component';
 import { escapeHtml, revertEscapeHtml } from '../../utilities/sanitize';
 import pulsing from '../../constants/pulsing-values';
 import materials from '../../constants/materials';
@@ -18,43 +18,67 @@ import deriveProps from '../higher-order-components/derive-props';
 
 const Dangerous = ({ children }) => <span dangerouslySetInnerHTML={dangerous(children)} />;
 
+class DateTag extends PureComponent {
+  getFormattedDate = () => {
+    const { datePosted } = this.props;
+
+    if (!datePosted) {
+      return 'Date posted not found...';
+    }
+
+    const date = new Date(datePosted);
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    return `${month}/${day}/${year}`;
+  };
+
+  render = () => (
+    <ListGroupItem>
+      <ListGroupItemHeading>Last Modified</ListGroupItemHeading>
+      <ListGroupItemText>
+        <Dangerous>{this.getFormattedDate()}</Dangerous>
+      </ListGroupItemText>
+    </ListGroupItem>
+  );
+}
+
+DateTag.propTypes = {
+  datePosted: PropTypes.string
+};
+
 class Item extends PureComponent {
-  constructor(props) {
-    super(props);
+  state = {};
 
-    this.state = {};
-
-    bind(this, 'toggleExpanded', 'edit', 'stopEditing', 'updateItem', 'remove');
-  }
-
-  toggleExpanded() {
+  toggleExpanded = () => {
     this.setState(prevState => ({
       expanded: !prevState.expanded
     }));
-  }
+  };
 
-  updateItem(item) {
+  updateItem = item => {
     this.stopEditing();
     this.props.editItem(item);
-  }
+  };
 
-  edit() {
+  edit = () => {
     this.setState({ editing: true });
-  }
+  };
 
-  stopEditing() {
+  stopEditing = () => {
     this.setState({ editing: false });
-  }
+  };
 
-  remove() {
+  remove = () => {
     this.props.removeItem(this.props.item.id);
-  }
+  };
 
-  style() {
+  style = () => {
     return {
       display: this.props.filtered ? undefined : 'none'
     };
-  }
+  };
 
   render() {
     const {
@@ -122,6 +146,7 @@ class Item extends PureComponent {
                 <Dangerous>{item.gate_point}</Dangerous>
               </ListGroupItemText>
             </ListGroupItem>
+            <DateTag datePosted={item.date_posted} />
             {user && (
               <ListGroupItem>
                 <DangerButton onClick={this.remove}>delete</DangerButton>{' '}

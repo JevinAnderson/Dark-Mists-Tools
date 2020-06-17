@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
 import './form.scss';
-import { bind, merge } from '../../utilities/component';
+import { merge } from '../../utilities/component';
 import { escapeHtml, revertEscapeHtml } from '../../utilities/sanitize';
 import { capitalizeFirstLetter } from '../../utilities/strings';
 import MATERIALS from '../../constants/materials';
@@ -21,13 +21,7 @@ const NUMBER_MAP = {
 };
 
 class ItemForm extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    bind(this, 'onChange', 'updateTag');
-  }
-
-  onChange({ target }) {
+  onChange = ({ target }) => {
     const key = target.getAttribute('data-item-key');
     let { value } = target;
     if (NUMBER_MAP[key]) {
@@ -35,7 +29,7 @@ class ItemForm extends PureComponent {
     }
 
     this.updateItem(key, value);
-  }
+  };
 
   doesTagPulse(tag) {
     return PULSING_INDICATORS.some(indicator => tag.indexOf(indicator) !== -1);
@@ -49,7 +43,7 @@ class ItemForm extends PureComponent {
     return materialValue === -1 ? 0 : materialValue;
   }
 
-  updateTag({ target: { value = '' } }) {
+  updateTag = ({ target: { value = '' } }) => {
     const { item } = this.props;
     let { pulsing = 0 } = item;
     pulsing = this.doesTagPulse(value) ? 1 : pulsing;
@@ -59,7 +53,7 @@ class ItemForm extends PureComponent {
     const changes = { pulsing, material, tag };
 
     this.updateItemWithAuthor(merge(item, changes));
-  }
+  };
 
   updateItem(key, value) {
     const item = merge(this.props.item, {

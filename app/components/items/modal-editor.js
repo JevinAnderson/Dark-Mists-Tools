@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { bind } from '../../utilities/component';
-import {} from '../../utilities/sanitize';
 import Modal from '../modal/modal';
 import ModalHeader from '../modal/modal-header';
 import ModalBody from '../modal/modal-body';
@@ -14,33 +12,30 @@ import Form from './form';
 const UPDATE_KEYS = ['item'];
 
 class ModalEditor extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.state = this.mapPropsToState(props);
-
-    bind(this, 'updateItem', 'save');
-  }
+  state = ModalEditor.mapPropsToState(this.props);
 
   componentWillReceiveProps(nextProps) {
     if (UPDATE_KEYS.some(key => nextProps[key] !== this.props[key])) {
-      const state = this.mapPropsToState(nextProps);
+      const state = ModalEditor.mapPropsToState(nextProps);
 
       this.setState(state);
     }
   }
 
-  mapPropsToState({ item = {} }) {
+  static mapPropsToState({ item = {} }) {
     return { item };
   }
 
-  updateItem(item) {
+  updateItem = item => {
     this.setState({ item });
-  }
+  };
 
-  save() {
-    this.props.updateItem(this.state.item);
-  }
+  save = () => {
+    let date_posted = new Date();
+    date_posted = date_posted.toISOString();
+
+    this.props.updateItem({ ...this.state.item, date_posted });
+  };
 
   render() {
     const {
