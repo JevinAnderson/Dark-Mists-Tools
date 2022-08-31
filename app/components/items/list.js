@@ -60,7 +60,7 @@ class List extends PureComponent {
       if (tagWeight !== null) {
         if (weightType === '>' && tagWeight < parsedWeight) {
           return false;
-        } else if (tagWeight > parsedWeight) {
+        } else if (weightType === '<' && tagWeight > parsedWeight) {
           return false;
         }
       }
