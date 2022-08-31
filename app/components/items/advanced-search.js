@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import Panel from '../panel/panel';
 import * as ItemSearchActions from '../../actions/item-search';
 import Input from '../form-controls/input';
+import InputGroup from '../form-controls/input-group';
+import InputGroupAddon from '../form-controls/input-group-addon';
 import Select from '../form-controls/select';
 import Button from '../buttons/default';
 import PrimaryButton from '../buttons/primary';
@@ -147,6 +149,14 @@ class AdvancedSearch extends Component {
             </option>
           ))}
         </LabeledSelect>
+        <InputGroup>
+          <InputGroupAddon>Filter by weight</InputGroupAddon>
+          <Select value={this.props.weightType} onChange={e => this.props.setWeightType(e.target.value)}>
+            <option value="<">Must be less than</option>
+            <option value=">">Must be greater than</option>
+          </Select>
+          <Input type="number" value={this.props.weight} onChange={e => this.props.setWeight(e.target.value)} />
+        </InputGroup>
       </Panel>
     </Panel>
   );
@@ -159,6 +169,8 @@ AdvancedSearch.propTypes = {
   setKeywordsSearchType: PropTypes.func,
   setKeywords: PropTypes.func,
   setExclusions: PropTypes.func,
+  setWeight: PropTypes.func,
+  setWeightType: PropTypes.func,
   toggleAdvancedSearch: PropTypes.func
 };
 
@@ -167,12 +179,11 @@ AdvancedSearch.defaultProps = {
   keywordsSearchType: 'any',
   exclusions: [],
   pulsing: 'yes',
-  material: 'any'
+  material: 'any',
+  weight: '',
+  weightType: '<'
 };
 
 const mapStateToProps = ({ item_search }) => item_search;
 
-export default connect(
-  mapStateToProps,
-  ItemSearchActions
-)(AdvancedSearch);
+export default connect(mapStateToProps, ItemSearchActions)(AdvancedSearch);

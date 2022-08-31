@@ -8,7 +8,9 @@ const initialState = {
   exclusions: [],
   material: undefined,
   pulsing: undefined,
-  showAdvancedSearch: false
+  showAdvancedSearch: false,
+  weight: '',
+  weightType: '<'
 };
 
 const SETTERS = {
@@ -17,7 +19,9 @@ const SETTERS = {
   [Constants.SET_KEYWORDS_SEARCH_TYPE]: 'keywordsSearchType',
   [Constants.SET_EXCLUSIONS]: 'exclusions',
   [Constants.SET_MATERIAL]: 'material',
-  [Constants.SET_PULSING]: 'pulsing'
+  [Constants.SET_PULSING]: 'pulsing',
+  [Constants.SET_WEIGHT]: 'weight',
+  [Constants.SET_WEIGHT_TYPE]: 'weightType'
 };
 
 export default function itemSearchReducer(state = initialState, action) {
