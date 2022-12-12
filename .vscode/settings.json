@@ -11,5 +11,10 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/docs": true
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#1A2F45",
+    "titleBar.activeBackground": "#244261",
+    "titleBar.activeForeground": "#F8FAFC"
   }
 }

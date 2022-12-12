@@ -1,7 +1,7 @@
 {
   "name": "my-dm-website",
   "version": "1.0.0",
-  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "description": "Use Node 14 and NPM 6",
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV='production' webpack --mode production",
